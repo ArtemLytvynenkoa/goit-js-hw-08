@@ -32,12 +32,10 @@ function repairFormsData() {
         form.email.value = parsedFeedbackFormData.email;
         form.message.value = parsedFeedbackFormData.message;
     };
-    if (parsedFeedbackFormData.email === undefined || parsedFeedbackFormData.message) {
+    if (parsedFeedbackFormData.email === undefined) {
         form.email.value = '';
-        form.message.value = parsedFeedbackFormData.message;
     };
-    if (parsedFeedbackFormData.email || parsedFeedbackFormData.message === undefined) {
-        form.email.value = parsedFeedbackFormData.email;
+    if (parsedFeedbackFormData.message === undefined) {
         form.message.value = '';
     }
 }
