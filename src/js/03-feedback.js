@@ -25,6 +25,9 @@ function repairFormsData() {
     const saveFeedbackFormData = localStorage.getItem('feedback-form-state');
     const parsedFeedbackFormData = JSON.parse(saveFeedbackFormData);
     
+    console.log(parsedFeedbackFormData.email);
+    console.log(parsedFeedbackFormData.message);
+    
     if (parsedFeedbackFormData) {
         form.email.value = parsedFeedbackFormData.email;
         form.message.value = parsedFeedbackFormData.message;
