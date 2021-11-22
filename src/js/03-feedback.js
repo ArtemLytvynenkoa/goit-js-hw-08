@@ -25,17 +25,17 @@ function repairFormsData() {
     const saveFeedbackFormData = localStorage.getItem('feedback-form-state');
     const parsedFeedbackFormData = JSON.parse(saveFeedbackFormData);
     
+    console.log(parsedFeedbackFormData);
+    
     if (parsedFeedbackFormData) {
         form.email.value = parsedFeedbackFormData.email;
         form.message.value = parsedFeedbackFormData.message;
         
-        console.log(parsedFeedbackFormData.email);
-        console.log(parsedFeedbackFormData.message);
-    };
-    if (parsedFeedbackFormData.email === undefined) {
+        if (!parsedFeedbackFormData.email) {
         form.email.value = '';
+        };
+        if (!parsedFeedbackFormData.message) {
+            form.message.value = '';
+        }
     };
-    if (parsedFeedbackFormData.message === undefined) {
-        form.message.value = '';
-    }
 }
