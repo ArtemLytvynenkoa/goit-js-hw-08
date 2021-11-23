@@ -2,8 +2,6 @@ import Throttle from 'lodash.throttle';
 
 const form = document.querySelector('.feedback-form');
 const feedbackFormData = {};
-const saveFeedbackFormData = localStorage.getItem('feedback-form-state');
-const parsedFeedbackFormData = JSON.parse(saveFeedbackFormData);
 
 
 form.addEventListener('submit', onFormSubmit);
@@ -19,12 +17,14 @@ function onFormInput(evt) {
 
 function onFormSubmit(evt) {
     evt.preventDefault();
-    console.log(parsedFeedbackFormData);
+    console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
     evt.currentTarget.reset();
     localStorage.removeItem('feedback-form-state');
 };
 
 function repairFormsData() {
+    const saveFeedbackFormData = localStorage.getItem('feedback-form-state');
+    const parsedFeedbackFormData = JSON.parse(saveFeedbackFormData);
     if (parsedFeedbackFormData) {
         form.email.value = parsedFeedbackFormData.email;
         form.message.value = parsedFeedbackFormData.message;
