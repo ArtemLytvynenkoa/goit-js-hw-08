@@ -27,14 +27,15 @@ function repairFormsData() {
     const saveFeedbackFormData = localStorage.getItem('feedback-form-state');
     const parsedFeedbackFormData = JSON.parse(saveFeedbackFormData);
     if (parsedFeedbackFormData) {
+        form.email.value = parsedFeedbackFormData.email;
+        form.message.value = parsedFeedbackFormData.message;
+
         if (!parsedFeedbackFormData.email) {
             form.email.value = '';
         };
         if (!parsedFeedbackFormData.message) {
             form.message.value = '';
         }
-        form.email.value = parsedFeedbackFormData.email;
-        form.message.value = parsedFeedbackFormData.message;
 
     };
 
