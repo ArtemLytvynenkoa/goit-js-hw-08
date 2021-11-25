@@ -11,7 +11,6 @@ repairFormsData();
 
 function onFormInput(evt) {
     feedbackFormData[evt.target.name] = evt.target.value;
-
     localStorage.setItem('feedback-form-state', JSON.stringify(feedbackFormData));
 };
 
@@ -38,5 +37,5 @@ function repairFormsData() {
         }
 
     };
-
+    feedbackFormData = { ...parsedFeedbackFormData };
 }
